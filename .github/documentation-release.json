@@ -4,7 +4,7 @@
     {
       "name": "@stackline/async",
       "path": "README.md",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "baselineVersion": "1.0.0",
       "keywords": [
         "stackline",
@@ -17,8 +17,8 @@
       "homepage": "https://alexandro.net/docs/vanilla/async/",
       "baselineTarball": "https://registry.npmjs.org/@stackline/async/-/async-1.0.0.tgz",
       "baselineIntegrity": "sha512-kynHl9tWOJ7VjQMpdLIijm9+uqNogmCXcBcDyv+isKDO+8DvKOqPbLGWUr2ghgNTnWILJef0GlMkHubLMeAo6g==",
-      "expectedSha512": "36e9d472ca58bbcff296f775c35336236aa01c2e87b0f535a5e93c50651680eaa7719e654f0850c402e32f5bf84100322ad83db20212f11a6b152b244052f6cd",
-      "tag": "docs-stackline-async-v1.0.1"
+      "expectedSha512": "9440d71fa08139c0aaef29d6c730ce243e81d14b80de4f19758f0d838a90f53394848ca62680bab67d5861121b66e67527012ceb89d840285253fbaa02a97f7b",
+      "tag": "docs-stackline-async-v1.0.2"
     }
   ]
 }
