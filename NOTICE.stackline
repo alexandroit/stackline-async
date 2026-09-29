@@ -1,0 +1,5 @@
+Independent maintenance fork of async 3.2.6.
+Original copyright, author attribution, and license files are retained unchanged.
+Upstream: https://github.com/caolan/async
+Base commit: 85fb18f3d319d14d893ec24648929ff0eb908768
+Stackline is not affiliated with or endorsed by upstream maintainers.

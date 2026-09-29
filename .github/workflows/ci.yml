@@ -1,91 +1,37 @@
 name: CI
-
 on:
   push:
-    branches-ignore:
-      - "dependabot/**"
+    branches: [stackline]
   pull_request:
-
+    branches: [stackline]
+  workflow_dispatch:
 permissions:
   contents: read
-
 jobs:
-  lint:
+  quality:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node:
-          - 20
+    env:
+      CI: true
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: stackline-ci
+      PGDATABASE: postgres
     steps:
-      - name: ⬇️ Checkout
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          cache: npm
-
-      - name: 📥 Download deps
-        run: npm ci
-
-      - name: 🧪 Run lint
-        run: npm run lint
-
-  build:
-    permissions:
-      actions: write  # for styfle/cancel-workflow-action to cancel/stop running workflows
-      checks: write  # for coverallsapp/github-action to create new checks
-      contents: read  # for actions/checkout to fetch code
-    runs-on: ${{ matrix.os }}
-    needs: lint
-    strategy:
-      fail-fast: false
-      matrix:
-        node:
-          - 18
-          - 20
-          - 21
-        os: [ubuntu-latest]
-        browser:
-          - FirefoxHeadless
-        include:
-          - os: windows-latest
-            node: 20
-            browser: FirefoxHeadless
-
-    steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: ⬇️ Checkout
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+          node-version: 24.20.0
+          package-manager-cache: false
+      - run: npm install --global npm@11.19.0
+      - run: npm ci --ignore-scripts
+      - run: npm run mocha-node-test
+      - run: python3 scripts/stackline-pack.py
+      - run: node scripts/stackline-test-packed.mjs
+      - run: node --test scripts/registry-requests.test.mjs
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          node-version: ${{ matrix.node }}
-          cache: npm
-
-      - name: 📥 Download deps
-        run: npm ci
-
-      - name: Run coverage
-        run: npm test
-
-      - name: Run browser tests
-        if: matrix.node == 20
-        run: npm run mocha-browser-test -- --browsers ${{ matrix.browser }}  --timeout 10000
-        env:
-          DISPLAY: :99.0
-
-      - name: Coverage
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '20'
-        run: npm run coverage && npx nyc report --reporter=lcov
-
-      - name: Coveralls
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '20'
-        uses: coverallsapp/github-action@v2.3.0
-        with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: npm-package
+          path: artifact/*
+          if-no-files-found: error

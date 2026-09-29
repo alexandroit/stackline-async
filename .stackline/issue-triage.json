@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-29T00:21:48.034168+00:00",
+  "upstreamRepository": "caolan/async",
+  "coverage": "Most recently updated 100 open and 30 closed issue/PR entries; PRs removed. This is triage evidence, not a claim of exhaustive review.",
+  "openIssues": [
+    {
+      "number": 2055,
+      "title": "Performance optimization opportunities for async flow control",
+      "url": "https://github.com/caolan/async/issues/2055"
+    },
+    {
+      "number": 2037,
+      "title": "async 3.2.6 ERR_INTERNAL_ASSERTION Unexpected module status 3 with node 22 / 24",
+      "url": "https://github.com/caolan/async/issues/2037"
+    },
+    {
+      "number": 1831,
+      "title": "Add Type Definitions",
+      "url": "https://github.com/caolan/async/issues/1831"
+    },
+    {
+      "number": 2010,
+      "title": "Webcomponent imports fail",
+      "url": "https://github.com/caolan/async/issues/2010"
+    },
+    {
+      "number": 1992,
+      "title": "Upgrade to newer version of babel",
+      "url": "https://github.com/caolan/async/issues/1992"
+    },
+    {
+      "number": 1879,
+      "title": "async package should distribute both cjs and esm",
+      "url": "https://github.com/caolan/async/issues/1879"
+    },
+    {
+      "number": 1609,
+      "title": "Documentation needs better examples",
+      "url": "https://github.com/caolan/async/issues/1609"
+    }
+  ],
+  "recentClosedIssues": [
+    {
+      "number": 2025,
+      "title": "Correct way to obtain result using async functions in queue",
+      "url": "https://github.com/caolan/async/issues/2025"
+    },
+    {
+      "number": 2035,
+      "title": "async.series silently cancels when callback(false) is used",
+      "url": "https://github.com/caolan/async/issues/2035"
+    },
+    {
+      "number": 2007,
+      "title": "Animations in docs do not work (bad signature)",
+      "url": "https://github.com/caolan/async/issues/2007"
+    },
+    {
+      "number": 2036,
+      "title": "Changelog does not include the latest version (v 3.2.6)",
+      "url": "https://github.com/caolan/async/issues/2036"
+    }
+  ],
+  "decision": "Maintenance adoption with preserved runtime payload. No runtime defect correction is claimed. Reports remain visible for subsequent targeted reproduction.",
+  "limits": "Issue titles and bodies were reviewed from the bounded primary-source snapshot; this does not claim exhaustive issue closure or vulnerability absence."
+}
