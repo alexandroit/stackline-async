@@ -1,0 +1,24 @@
+{
+  "repository": "alexandroit/stackline-async",
+  "packages": [
+    {
+      "name": "@stackline/async",
+      "path": "README.md",
+      "version": "1.0.1",
+      "baselineVersion": "1.0.0",
+      "keywords": [
+        "stackline",
+        "npm-package",
+        "async",
+        "callback",
+        "module",
+        "utility"
+      ],
+      "homepage": "https://alexandro.net/docs/vanilla/async/",
+      "baselineTarball": "https://registry.npmjs.org/@stackline/async/-/async-1.0.0.tgz",
+      "baselineIntegrity": "sha512-kynHl9tWOJ7VjQMpdLIijm9+uqNogmCXcBcDyv+isKDO+8DvKOqPbLGWUr2ghgNTnWILJef0GlMkHubLMeAo6g==",
+      "expectedSha512": "36e9d472ca58bbcff296f775c35336236aa01c2e87b0f535a5e93c50651680eaa7719e654f0850c402e32f5bf84100322ad83db20212f11a6b152b244052f6cd",
+      "tag": "docs-stackline-async-v1.0.1"
+    }
+  ]
+}
