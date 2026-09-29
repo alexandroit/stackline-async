@@ -4,7 +4,7 @@ var {expect} = require('chai');
 var {rollup} = require('rollup');
 var rollupPluginNodeResolve = require('rollup-plugin-node-resolve');
 var fs = require('fs');
-var {exec} = require('child_process');
+var {execFile} = require('child_process');
 
 describe("async main", () => {
     var async;
@@ -87,7 +87,7 @@ describe("ES Modules", () => {
     });
 
     it("should build a successful bundle", (done) => {
-        exec("node " + buildFile, (err, stdout) => {
+        execFile(process.execPath, [buildFile], (err, stdout) => {
             if (err) { return done(err); }
             expect(stdout).to.match(/42/);
             done();
